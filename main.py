@@ -4,15 +4,15 @@ import base64
 
 time = fun.time_now()
 
-
+# Функція для перетворення зображення у base64
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-
+# Отримання base64 зображення
 img_base64 = get_base64("image.png")
 
-
+# Вставка стилю з правильним CSS
 st.markdown(
     f"""
     <style>
@@ -22,21 +22,14 @@ st.markdown(
         background-position: center;
         background-repeat: no-repeat;
         color: white;
+        
     }}
+    
     label {{
         color: white !important;
     }}
+    
     </style>
-
-    <script>
-    const interval = setInterval(() => {{
-        const inputs = document.querySelectorAll('input[type="time"]');
-        if (inputs.length) {{
-            inputs.forEach(input => input.setAttribute('readonly', true));
-            clearInterval(interval);
-        }}
-    }}, 500);
-    </script>
     """,
     unsafe_allow_html=True
 )
@@ -50,6 +43,7 @@ if res:
     result = [res.hour, res.minute, res.second]
     wakeup = fun.alarm_clock(*result)
     text_placeholder.markdown(
-        f"<h3 style='color:white;'>Час для підйому: {wakeup}</h3>",
+        f"<p style='color:white;'><h3>Час для підйому: {wakeup}</h3></p>",
         unsafe_allow_html=True
     )
+
