@@ -1,8 +1,9 @@
 import datetime as timr
+from zoneinfo import ZoneInfo
 
 
 def alarm_clock(hour, minute, second):
-    now = timr.datetime.now()
+    now = timr.datetime.now(ZoneInfo("Europe/Kyiv"))
     just_time = timr.timedelta(hours=now.hour, minutes=now.minute, seconds=now.second)
     rise_time = timr.timedelta(hours=hour, minutes=minute, seconds=second)
     cycle = timr.timedelta(hours=1, minutes=30, seconds=0)
@@ -14,7 +15,7 @@ def alarm_clock(hour, minute, second):
 
 
 def time_now():
-    now = timr.datetime.now()
+    now = timr.datetime.now(ZoneInfo("Europe/Kyiv"))
     just_tim = now.time().replace(microsecond=0)
     return just_tim
 
