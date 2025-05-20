@@ -21,5 +21,20 @@ def time_now():
 
 
 
-result = alarm_clock(17, 0, 0)
-print(result)
+def time_to_sleep(time):
+    now = timr.datetime.now(ZoneInfo("Europe/Kyiv"))
+    just_time = timr.timedelta(hours=now.hour, minutes=now.minute, seconds=now.second)
+    wakeup = time
+    result = (wakeup - just_time)
+    if wakeup < just_time:
+        result1 = result + timr.timedelta(days=1)
+        return result1
+
+    else:
+        return result
+
+
+
+
+
+
