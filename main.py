@@ -4,7 +4,7 @@ import base64
 
 time = fun.time_now()
 
-# Функція для перетворення зображення у base64
+
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -37,10 +37,10 @@ st.markdown(
 st.title(time)
 text_placeholder = st.empty()
 times_sleep_placeholder = st.empty()
-res = st.time_input("Оберіть час о котрій прокидатися: ", key="wakeup")
+input_time = st.time_input("Оберіть час о котрій прокидатися: ", key="wakeup")
 
-if res:
-    result = [res.hour, res.minute, res.second]
+if input_time:
+    result = [input_time.hour, input_time.minute, input_time.second]
     wakeup = fun.alarm_clock(*result)
     text_placeholder.markdown(
         f"<p style='color:white;'><h3>Час для підйому: {wakeup}</h3></p>",

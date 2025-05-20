@@ -24,11 +24,11 @@ def time_now():
 def time_to_sleep(time):
     now = timr.datetime.now(ZoneInfo("Europe/Kyiv"))
     just_time = timr.timedelta(hours=now.hour, minutes=now.minute, seconds=now.second)
-    wakeup = time
-    result = (wakeup - just_time)
-    if wakeup < just_time:
-        result1 = result + timr.timedelta(days=1)
-        return result1
+    wakeup_time = time
+    result = (wakeup_time - just_time)
+    if wakeup_time < just_time:
+        wakeup1 = result + timr.timedelta(days=1)
+        return wakeup1
 
     else:
         return result
