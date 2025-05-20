@@ -50,6 +50,6 @@ if res:
         f"<p style='color:white;'><h4>Час сну: {time_to_sleep}</h4></p>",
         unsafe_allow_html=True)
 
-    print(wakeup)
+
 
 
